@@ -75,7 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(command-not-found gradle-completion zsh-syntax-highlighting history-substring-search zsh-autosuggestions)
+plugins=(ssh-agent command-not-found gradle-completion zsh-syntax-highlighting history-substring-search zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,8 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities id_rsa
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
 umask 0022
 
@@ -117,9 +116,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -p'
 
-# export http_proxy=127.0.0.1:7890
-# export https_proxy=127.0.0.1:7890
-# export ftp_proxy=127.0.0.1:7890
+# export http_proxy=localhost:7890
+# export https_proxy=localhost:7890
+# export ftp_proxy=localhost:7890
 
 # source .pypy3/bin/activate
 # export PATH=$PATH:~/Mx-Compiler/build/install/Mx-Compiler/bin
