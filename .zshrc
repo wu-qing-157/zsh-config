@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/wu-qing-157/.oh-my-zsh"
@@ -116,9 +116,11 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=
 
 umask 0022
 
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -p'
+alias ll='exa -l --icons --git --time-style iso'
+alias lla='ll -a'
+alias ls='exa --icons'
+alias la='exa -a --icons'
+alias l='exa --git-ignore --icons'
 
 export aliyun='47.99.133.54'
 
@@ -127,4 +129,4 @@ export https_proxy=localhost:7890
 export ftp_proxy=localhost:7890
 
 source ~/.pypy3/bin/activate
-export PATH=$PATH:/opt/riscv/bin:~/Mx-Compiler/build/install/Mx-Compiler/bin
+export PATH=$PATH:/opt/riscv/bin:$HOME/.llvm/bin:$HOME/Mx-Compiler/build/install/Mx-Compiler/bin
