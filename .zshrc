@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH
 
@@ -75,9 +68,15 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ssh-agent command-not-found z.lua gradle-completion zsh-syntax-highlighting history-substring-search zsh-autosuggestions)
+
+plugins=(ssh-agent command-not-found z.lua gradle-completion zsh-syntax-highlighting history-substring-search)
+plugins+=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # User configuration
 
@@ -123,10 +122,11 @@ alias la='exa -a --icons'
 alias l='exa --git-ignore --icons'
 
 export aliyun='47.99.133.54'
+export huaweiyun='121.36.96.70'
 
 export http_proxy=localhost:7890
 export https_proxy=localhost:7890
 export ftp_proxy=localhost:7890
 
 source ~/.pypy3/bin/activate
-export PATH=$PATH:/opt/riscv/bin:$HOME/.llvm/bin:$HOME/Mx-Compiler/build/install/Mx-Compiler/bin
+export PATH=$PATH:/opt/riscv/bin:/opt/ravel/bin:$HOME/.llvm/bin:$HOME/Rogue-Mx/build/install/Rogue-Mx/bin
